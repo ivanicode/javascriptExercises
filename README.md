@@ -1,1 +1,3 @@
 # javascriptExercises
+
+my exercises project
