@@ -1,0 +1,23 @@
+<!doctype html>
+  <head>
+     <meta charset="utf-8">
+     <title>iGłaz - Wirtualny Kamienny Ulubieniec</title>
+     <script>
+      function touchRock() {
+        var userName = prompt("Jak masz na imię?", "Podaj swoje imię.");
+        if (userName) {
+          alert("Miło znów Cię widzieć, "+ userName +".");
+          document.getElementById("rockImg").src = "rock_happy.png";
+        } 
+      }
+     
+     </script>
+  </head>
+  <body onload="alert('Witaj, jestem Twoim kamiennym ulubieńcem');">
+    <div style="margin-top:100px; text-align:center">
+    <img id="rockImg" src="./rock.png" alt="iGłaz"
+    style="cursor:pointer" onclick="touchRock();" />
+    </div>
+  </body>
+</html>
+ 
