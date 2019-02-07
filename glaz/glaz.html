@@ -9,8 +9,9 @@
           alert("Miło znów Cię widzieć, "+ userName +".");
           document.getElementById("rockImg").src = "rock_happy.png";
         } 
+        document.getElementById("rockImg").src = "rock_happy.png";
+        setTimeout("document.getElementById('rockImg').src = 'rock.png';", 5 * 60 * 1000);
       }
-     
      </script>
   </head>
   <body onload="alert('Witaj, jestem Twoim kamiennym ulubieńcem');">
