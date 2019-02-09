@@ -2,6 +2,7 @@
   <head>
      <meta charset="utf-8">
      <title>iGłaz - Wirtualny Kamienny Ulubieniec</title>
+     <script type="text/javascript" src="cookie.js"></script>
      <script>
       function touchRock() {
         var userName = prompt("Jak masz na imię?", "Podaj swoje imię.");
@@ -12,12 +13,23 @@
         document.getElementById("rockImg").src = "rock_happy.png";
         setTimeout("document.getElementById('rockImg').src = 'rock.png';", 5 * 60 * 1000);
       }
+      function resizeRock() {
+      document.getElementById("rockImg").style.height=
+      (document.body.clientHeight - 100) * 0.9;
+    }
+      function greetUser() {
+        userName = readCookie("irock_username");
+        if (userName)
+        alert("Witam " + userName + ", juz sie za Toba stesknilem");
+        else
+        alert('Witam, jestem Twoim wirtualnym ulubiencem')
+      }
      </script>
   </head>
-  <body onload="alert('Witaj, jestem Twoim kamiennym ulubieńcem');">
+  <body onload="resizeRock(); greetuser();" onresize="resizeRock();">
     <div style="margin-top:100px; text-align:center">
-    <img id="rockImg" src="./rock.png" alt="iGłaz"
-    style="cursor:pointer" onclick="touchRock();" />
+     <img id="rockImg" src="rock.png" alt="iRock" style="cursor:pointer;"
+     onclick="touchRock();" />
     </div>
   </body>
 </html>
