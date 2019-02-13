@@ -2,31 +2,43 @@
   <head>
      <meta charset="utf-8">
      <title>iGłaz - Wirtualny Kamienny Ulubieniec</title>
-     <script type="text/javascript" src="cookie.js"></script>
+     <script src="./cookie.js"></script>
      <script>
-      function touchRock() {
-        var userName = prompt("Jak masz na imię?", "Podaj swoje imię.");
-        if (userName) {
-          alert("Miło znów Cię widzieć, "+ userName +".");
-          document.getElementById("rockImg").src = "rock_happy.png";
-        } 
-        document.getElementById("rockImg").src = "rock_happy.png";
-        setTimeout("document.getElementById('rockImg').src = 'rock.png';", 5 * 60 * 1000);
-      }
-      function resizeRock() {
+       var userName;
+       function resizeRock() {
       document.getElementById("rockImg").style.height=
       (document.body.clientHeight - 100) * 0.9;
     }
-      function greetUser() {
+    function greetUser() {
+      if (navigator.cookieEnabled)
         userName = readCookie("irock_username");
         if (userName)
         alert("Witam " + userName + ", juz sie za Toba stesknilem");
         else
         alert('Witam, jestem Twoim wirtualnym ulubiencem')
       }
+      function touchRock() {
+        if (userName) {
+          alert("Lubie jak sie mna interesujesz , " + userName + ". Dziekuje");
+        }
+        else {
+         userName = prompt("Jak masz na imię?", "Podaj swoje imię.");
+        if (userName) {
+          alert("Miło Cie poznac, "+ userName +".");
+          if (navigator.cookieEnabled)
+          writeCookie("irock_username", userName , 5 * 365);
+          else
+          alert("Twoja pregladarka nie obsluguje ciasteczek, a to ocznacza, ze nie moge Cie pamietac. Przykro mi.");
+        } 
+        }
+        document.getElementById("rockImg").src = "rock_happy.png";
+        setTimeout("document.getElementById('rockImg').src = 'rock.png';", 5 * 60 * 1000);
+      }
+      
+      
      </script>
   </head>
-  <body onload="resizeRock(); greetuser();" onresize="resizeRock();">
+  <body onload="resizeRock(); greetUser();" onresize="resizeRock();">
     <div style="margin-top:100px; text-align:center">
      <img id="rockImg" src="rock.png" alt="iRock" style="cursor:pointer;"
      onclick="touchRock();" />

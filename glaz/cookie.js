@@ -1,20 +1,20 @@
 function writeCookie(name, value, days) {
-  // Domyœlnie nie ma daty wygaœniêcia, wiêc ciasteczko bêdzie tymczasowe
+  // Domyï¿½lnie nie ma daty wygaï¿½niï¿½cia, wiï¿½c ciasteczko bï¿½dzie tymczasowe
   var expires = "";
 
-  // Okreœlenie iloœci dni (daty wygaœniêcia) zapewnia ciasteczku trwa³oœæ
+  // Okreï¿½lenie iloï¿½ci dni (daty wygaï¿½niï¿½cia) zapewnia ciasteczku trwaï¿½oï¿½ï¿½
   if (days) {
     var date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
     expires = "; expires=" + date.toGMTString();
   }
 
-  // Zapisuje ciasteczko o podanej nazwie, wartoœci i dacie wygaœniêcia
-  document.cookie = name + "=" + value + expires + "; path=/";
+  // Zapisuje ciasteczko o podanej nazwie, wartoï¿½ci i dacie wygaï¿½niï¿½cia
+  document.cookie = name + "=" + value + expires + ";";
 }
 
 function readCookie(name) {
-  // Odnajduje okreœlone ciasteczko i zwraca jego wartoœæ
+  // Odnajduje okrelone ciasteczko i zwraca jego wartoï¿½ï¿½
   var searchName = name + "=";
   var cookies = document.cookie.split(';');
   for(var i=0; i < cookies.length; i++) {
